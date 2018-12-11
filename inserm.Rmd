@@ -1,0 +1,41 @@
+---
+title: ''
+output: html_document
+---
+<div align="center">
+<font size="4"> 
+Batiment inserm villejuif
+</font> 
+
+![](image1.jpg)
+<p><font size="4">
+<div align="left">
+A propos de l'inserm:
+Depuis sa création en 1964, l’Inserm a été l’acteur d’avancées médicales majeures : premiers tests de diagnostic prénatal, décryptage des mécanismes du système HLAHLALes protéines HLA, situées à la surface des cellules, permettent au système immunitaire de distinguer les cellules de l’organisme des cellules étrangères., première fécondation in vitro, identification du virus du sida, radiothérapie contre le cancer, première greffe de peau, stimulation cérébrale profondestimulation cérébrale profondeConsiste à délivrer un courant électrique de faible intensité dans certaines structures spécifiques du cerveau, grâce à des électrodes directement implantées., thérapie génique… 
+
+Cette mission s’appuie sur le travail de 9 instituts thématiques, dont le rôle est de réaliser l’état des lieux de la recherche dans leur domaine et d’animer cette recherche. Par ailleurs, les recherches sur le sida et les hépatites B et C sont conduites et financées par l’ANRS, agence autonome de l’Inserm.
+
+L’Institut se distingue par l’excellence scientifique de ses équipes, mais également par sa capacité à assurer une recherche translationnellerecherche translationnelleAssure le continuum entre la recherche fondamentale et la recherche clinique, en accélérant l’application des résultats de recherche afin que les patients puissent bénéficier rapidement des innovations médicales., du laboratoire de recherche au lit du patient.
+
+Aujourd’hui, l’Inserm est au 1er rang européen des institutions académiques de recherche dans le domaine biomédical, avec près de 12 000 publications par an, et au 2e rang mondial derrière les National Institutes of Health (NIH) intra-muros. L’Inserm est en outre le 9e organisme public de recherche les plus innovants au monde, selon le classement Thomson-Reuters 2016.
+</font></p>
+
+[source](https://www.inserm.fr/connaitre-inserm/missions)
+
+<p><font size="4">
+retrouver le site de l'[inserm](https://www.inserm.fr/)
+</font></p>
+
+<p><font size="4"> 
+L'inserm à aussi une chaine youtube.
+</font></p>
+
+<div align="center">
+<iframe width="560" height="315" src="http://www.youtube.com/embed/jQKX02bihE0" frameborder="0" allowfullscreen>
+</iframe>
+<p></iframe></p>
+
+<div align="left">
+ <p><font size="4"> 
+ retrouver sa chaine youtube [là](https://www.youtube.com/channel/UCIqFi2jwZI4TIs1hNZz18Mw)
+ </font></p>

@@ -1,0 +1,14 @@
+---
+title: ''
+output: html_document
+---
+
+<p><font size="4"> 
+résumé deuxième journée:
+
+- Mise en place du squellete de la page web du compte rendue du stage
+
+- choix des rubriques de la page web, écriture de la page web
+
+-hébergement de la page web
+</font></p>

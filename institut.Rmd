@@ -1,0 +1,23 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+<p><font size="4">
+I.N.S.E.R.M  veut dire : institut nationale de la santé et de la rcherche médicale. On l'applellera désormais inserm.
+Actuellemnt je suis dans le batiment 15-16 
+</font></p> 
+ ![](planinserm.jpg)
+ 
+
+<p><font size="4"> 
+L'équipe est fondée d'enseignat chercheur et de chercheur a temps plein.Pour devenir chercheur a temps plein ou enseignat chercheur il faut deja avoir un doctorat puis passer un concours.La gestion de recrutement est confié a la structure d'accueil des candidats et les postes ouverts sont diffusés. Les constitue les dossier incluant un résumé succint de leur parcour avec un projet de recherche détaillé et un descriptif des travaux effectuées en thèse ou en années post-doctorales. Un comité de séléction étudie les dossiers et sélectionnent une dizaine de candidats admissibles à une audition. Le comité de selection auditionnet les candidazts et établie un classement.  
+ Les effectifs des différentes équipes de recherche du CESP sont composées d'hommes et de femmes de différentes nationalités. La majorité des chercheurs post-doctoraux sont de nationalités étrangères. La mobilité et le séjour post-doctoral à l'étranger est devenue un critère très important dans le recrutement d'un chercheur. 
+ </font></p>
+ 
+<p><font size="4"> 
+le service d'enseignement est de 192 heures par années repartie sur l'années selon l'emploie du temps de la formation dans laquelle il enseigne. Certains enseignants peuvent avoir un service d'enseignemant etalés sur l'années alors que d'autre ont un service d'enseignement etalé sur une courte période de l'année. L'enseignant chercheur passe aussi son temps a préparé des cours et participe à des rénions autours de projet de recherche à demandé ou déjâ financé.
+</font></p>
+
+<p><font size="4">Le chercheur à plein temps peut devenir chargé de recherche puis directeur de recherche et l'enseignant-chercheur peut devenir maitre de conférences puis professeur. </font></p>

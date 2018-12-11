@@ -1,0 +1,5 @@
+---
+title: ''
+output: html_document
+---
+Bonjours et bienvenue, Ceci est la page wek du compte-rendue(ou rapport) du stage d'observation de 3ème.

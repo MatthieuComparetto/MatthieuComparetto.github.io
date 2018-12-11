@@ -1,0 +1,40 @@
+name: "site stage"
+output_dir: "."
+navbar:
+  title: "Accueil"
+  left:   
+    - text: "introduction/résumé des jours"
+      menu: 
+        - text: "introduction"
+          href: introduction.html
+        - text: ---
+        - text: "résume des jours"
+        - text: "premier jour"
+          href:  day1.html
+        - text: "deuxième jour"
+          href: day2.html
+        - text: "troisième jour"
+          href: 
+        - text: "quatrième jour"
+          href:
+        - text: "dernierjour"
+          href: 
+    - text: "institution/équipe de recherche"
+      href: institut.html
+    - text: "méthodes de classification"
+      menu:
+        - text: "exemple introductif"
+          href: exemple.html
+        - text: "application à la génétique des populations"
+          href: genpop.html
+    - text: "Site important"
+      menu:
+        - text: "INSERM"
+          href: inserm.html
+        - text: ---
+        - text: "cesp"
+          href: http://cesp.inserm.fr/
+  output:
+  html_document:
+    theme: journal
+css: style.css  
