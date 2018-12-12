@@ -4,7 +4,7 @@ output: html_document
 ---
 
 <p><font size="4"> 
-résumé deuxième journée:
+Résumé deuxième journée:
 
 - Mise en place du squellete de la page web du compte rendue du stage
 
