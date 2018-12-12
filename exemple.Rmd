@@ -4,3 +4,35 @@ output: html_document
 ---
 
 exemple: classification des points dans le plan
+
+Dans cette partie nous allons parler d'un problème de classification. IL y'as deux tireur qui font des impacts de balle dans un mur. l’algorithme ci dessous détecte la provenances des impacts de balles; On considère un tireur qui aura ses balles en noirs et un autre avec des balles en rouges. L’algorithme à 5.5% de chance de se tromper. Comme on peut voir sur le graphique, il ne sufit que d'une seule dimension pour distinguer le milieu des impacts de balles(Y)
+
+```{r, eval=TRUE}
+set.seed(123)
+# Fonction de generation des donnees
+rmixture <- function(n=100, delta=2, d.disc=2, d.nondisc=0){
+  z <- sample(1:2, n, replace = TRUE)
+  x <- matrix(rnorm(n*(d.disc+d.nondisc)), n)
+  x[which(z==2), 1:d.disc] <- x[which(z==2), 1:d.disc]*2 + delta
+  list(x=as.data.frame(x), z=z)
+}
+
+
+ech <- rmixture(n=200, delta=5, d.disc = 1, d.nondisc = 1)
+par(mfrow=c(1,2))
+plot(ech$x[,1], ech$ech[,2], pch="+", xlab=~x, ylab=~y)
+#plot(ech$x[,1], ech$ech[,2], pch="+", col=ech$z, xlab=~x, ylab=~y)
+detect <- kmeans(ech$x, 2, nstart = 100)
+plot(ech$x[,1], ech$ech[,2], pch="+", col = detect$cluster,xlab=~x, ylab=~y)
+min(mean(ech$z!=detect$cluster), 1-mean(ech$z!=detect$cluster))
+```
+
+Voici un autre algorithme, qui lui sépare les spirales, une en rouge et une en noir.
+C'est un autre algorithme car l'uatre ne peut pas séparer les spirales, ils les coupent en leur milieu. Comme on peut voir sur le graphique, on ne peut pas savoir combien de personne il y'as sur le graphique
+
+```{r, eval=TRUE}
+require(kernlab)
+data(spirals)
+par(mfrow=c(1,2))
+plot(spirals, col = kmeans(spirals, 2)$cluster, xlab=~x, ylab=~y )
+plot(spirals, col = specc(spirals, 2), xlab=~x, ylab=~y)
