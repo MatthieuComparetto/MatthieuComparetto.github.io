@@ -352,10 +352,21 @@ $(document).ready(function () {
 
 
 <p>exemple: classification des points dans le plan</p>
-<p>Dans cette partie nous allons parler d’un problème de classification. IL y’as deux tireur qui font des impacts de balle dans un mur. l’algorithme ci dessous détecte la provenances des impacts de balles; On considère un tireur qui aura ses balles en noirs et un autre avec des balles en rouges. L’algorithme à 5.5% de chance de se tromper. Comme on peut voir sur le graphique, il ne sufit que d’une seule dimension pour distinguer le milieu des impacts de balles(Y)</p>
+<p>Dans cette partie, nous simulons des impacts de balles provenant de deux tireurs différents. Nous présentons une procédure de détection des impacts de chaque tireurs. Cela revient à mettre une couleur noir ou rouge sur chaque impact où chaque couleur caractérise un tireur. Le bloc de code suivant propose de simuler 200 impacts sur un mur. Ces lignes de code ont été réalisées sous le logiciel libre <a href="https://cran.r-project.org/"></a>. Les principaux éléments de ce codes correspondent à</p>
+<ul>
+<li>l’instruction <code>set.seed(123)</code> permet de rendre l’expérience de simulation reproductible</li>
+<li>l’objet intitulé <code>rmixture</code> qui simule les impacts de balles où
+<ul>
+<li><code>n</code> est l’agrument qui contrôle le nombre d’impacts à simuler</li>
+<li><code>delta</code> contrôle la différence entre les impacts des deux tireurs</li>
+<li><code>d.disc</code> est le nombe de dimensions discriminantes (une seule dans notre exemple)</li>
+<li><code>d.nondisc</code> est le nombe de dimensions non-discriminantes (une seule dans notre exemple)</li>
+</ul></li>
+</ul>
+<p>Dans la suite, nous allons utiliser le terme <em>étiquette</em> pour désigner les couleurs rouge et noir qui permettent de distinguer les impacts d’un tireur de ceux de l’autre. On propose de cacher la vérité qui correspond aux étiquettes rouges et noirs des impacts et nous allons faire appel à une procédure de détection appelée <strong>algorithme des k-moyennes</strong>.</p>
 <pre class="r"><code>set.seed(123)
 # Fonction de generation des donnees
-rmixture &lt;- function(n=100, delta=2, d.disc=2, d.nondisc=0){
+rmixture &lt;- function(n, delta, d.disc, d.nondisc){
   z &lt;- sample(1:2, n, replace = TRUE)
   x &lt;- matrix(rnorm(n*(d.disc+d.nondisc)), n)
   x[which(z==2), 1:d.disc] &lt;- x[which(z==2), 1:d.disc]*2 + delta
@@ -364,22 +375,40 @@ rmixture &lt;- function(n=100, delta=2, d.disc=2, d.nondisc=0){
 
 
 ech &lt;- rmixture(n=200, delta=5, d.disc = 1, d.nondisc = 1)
-par(mfrow=c(1,2))
-plot(ech$x[,1], ech$ech[,2], pch=&quot;+&quot;, xlab=~x, ylab=~y)
-#plot(ech$x[,1], ech$ech[,2], pch=&quot;+&quot;, col=ech$z, xlab=~x, ylab=~y)
+plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col=ech$z, xlab=~x, ylab=~y, main=&quot;la vérité simulée&quot;)</code></pre>
+<p><img src="exemple_files/figure-html/unnamed-chunk-1-1.png" width="528" /></p>
+<p>L’algorithme des k-moyennes peut être résumé par les 4 étapes suivantes :</p>
+<ol style="list-style-type: decimal">
+<li><p>On choisit deux points moyens au hasard, un rouge et un noir.</p></li>
+<li><p>On affecte une étiquette rouges aux points les plus proches du point rouge et une étiquette noir aux points les plus proches du point noir;</p></li>
+<li><p>On calcule les coordonnées moyennes des points rouges et les coordonnées moyennes des points noirs qui vont jouer le rôle des deux points moyens rouge et noir.</p></li>
+<li><p>On répete l’etape 2 et 3 jusqu’à ce que les deux points moyens rouge et noir se stabilisent et ne bougent plus.</p></li>
+</ol>
+<!-- L’algorithme ci dessous détecte la provenances des impacts de balles; On considère un tireur qui aura ses balles en noirs et un autre avec des balles en rouges. L’algorithme à 5.5% de chance de se tromper. Comme on peut voir sur le graphique, il ne suffit que d'une seule dimension pour distinguer le milieu des impacts de balles(Y) -->
+<!-- grâce à l'algorithme on peut aussi savoir quel est le côté discriminant et le aussi nombre de tireur. -->
+<p>Le bloc de code suivant permet de mettre en place la procédure des kmoyennes sur les 200 impacts simulés précédemment</p>
+<pre class="r"><code>par(mfrow=c(1,2))
+plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, xlab=~x, ylab=~y, main=&quot;étiquettes cachées&quot;)
 detect &lt;- kmeans(ech$x, 2, nstart = 100)
-plot(ech$x[,1], ech$ech[,2], pch=&quot;+&quot;, col = detect$cluster,xlab=~x, ylab=~y)</code></pre>
-<p><img src="exemple_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col = detect$cluster,
+     xlab=~x, ylab=~y, main=&quot;étiquettes attribuées&quot;)</code></pre>
+<p><img src="exemple_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>min(mean(ech$z!=detect$cluster), 1-mean(ech$z!=detect$cluster))</code></pre>
 <pre><code>## [1] 0.055</code></pre>
-<p>Voici un autre algorithme, qui lui sépare les spirales, une en rouge et une en noir. C’est un autre algorithme car l’uatre ne peut pas séparer les spirales, ils les coupent en leur milieu. Comme on peut voir sur le graphique, on ne peut pas savoir combien de personne il y’as sur le graphique</p>
+<p>Comme on peut le constacter, l’affectation des couleurs des étiquettes se fait à une permutation près. L’algorithme des k-moyennes se trompes dans l’étiquetage de <span class="math inline">\(5.5\%\)</span> des impacts.</p>
+<p>On Utilise maintenat une autre figure ci dessous. on peut voir deux formes distinct. On essaye maitenant de la séparer avec Kmoyenne</p>
 <pre class="r"><code>require(kernlab)</code></pre>
 <pre><code>## Loading required package: kernlab</code></pre>
 <pre class="r"><code>data(spirals)
+plot(spirals, xlab=~x, ylab=~y, main=&quot;deux spirales&quot;)</code></pre>
+<p><img src="exemple_files/figure-html/unnamed-chunk-3-1.png" width="528" /></p>
+<p>Comme on peut voir Kmoyenne, échoue complétement complétement en séparant les spirales en leur milieu.* On utilise alors specc et comme on peut voir sur l’image, arrive à séparer les spirales.</p>
+<pre class="r"><code>require(kernlab)
+data(spirals)
 par(mfrow=c(1,2))
 plot(spirals, col = kmeans(spirals, 2)$cluster, xlab=~x, ylab=~y )
 plot(spirals, col = specc(spirals, 2), xlab=~x, ylab=~y)</code></pre>
-<p><img src="exemple_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="exemple_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 
 
 
