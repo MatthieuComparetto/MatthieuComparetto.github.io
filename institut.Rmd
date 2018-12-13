@@ -5,7 +5,7 @@ date: ""
 output: html_document
 ---
 <p><font size="4">
-I.N.S.E.R.M  veut dire : institut nationale de la santé et de la rcherche médicale. On l'applellera désormais inserm.
+Institut Nationale de la Santé et de la Recherche Médicale qu'on l'applellera désormais inserm.
 Actuellemnt je suis dans le batiment 15-16 
 </font></p> 
  ![](planinserm.jpg)
