@@ -402,7 +402,7 @@ plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col = detect$cluster,
 <pre class="r"><code>data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main=&quot;deux spirales&quot;)</code></pre>
 <p><img src="exemple_files/figure-html/unnamed-chunk-3-1.png" width="528" /></p>
-<p>Comme on peut voir Kmoyenne, échoue complétement complétement en séparant les spirales en leur milieu.* On utilise alors specc et comme on peut voir sur l’image, arrive à séparer les spirales.</p>
+<p>Comme on peut voir Kmoyenne, échoue complétement en séparant les spirales en leur milieu. On utilise alors specc pour les séparer et comme on peut voir sur l’image juste en dessous, arrive à séparer correctement les spirales.</p>
 <pre class="r"><code>require(kernlab)
 data(spirals)
 par(mfrow=c(1,2))

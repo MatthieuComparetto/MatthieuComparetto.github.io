@@ -69,8 +69,8 @@ data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main="deux spirales")
 ```
 
-Comme on peut voir Kmoyenne, échoue complétement complétement en séparant les spirales en leur milieu.*
-On utilise alors specc et comme on peut voir sur l'image, arrive à séparer les spirales.
+Comme on peut voir Kmoyenne, échoue complétement en séparant les spirales en leur milieu.
+On utilise alors specc pour les séparer et comme on peut voir sur l'image juste en dessous, arrive à séparer correctement les spirales.
 ```{r, eval=TRUE}
 require(kernlab)
 data(spirals)
