@@ -3,9 +3,6 @@ title: ''
 output: html_document
 ---
 
-exemple: classification des points dans le plan
-
-
 Dans cette partie, nous simulons des impacts de balles provenant de deux tireurs différents. Nous présentons une procédure de détection des impacts de chaque tireurs. Cela revient à mettre une couleur noir ou rouge sur chaque impact où chaque couleur caractérise un tireur. Le bloc de code suivant propose de simuler 200 impacts sur un mur. Ces lignes de code ont été réalisées sous le logiciel libre [\textsf{R}](https://cran.r-project.org/). Les principaux éléments de ce codes correspondent à 
  
  - l'instruction `set.seed(123)` permet de rendre l'expérience de simulation reproductible
@@ -61,16 +58,16 @@ min(mean(ech$z!=detect$cluster), 1-mean(ech$z!=detect$cluster))
 Comme on peut le constacter, l'affectation des couleurs des étiquettes se fait à une permutation près. L'algorithme des k-moyennes se trompes dans l'étiquetage de $5.5\%$
 des impacts.
 
-On Utilise maintenat une autre figure ci dessous. on peut voir deux formes distinct. On essaye maitenant de la séparer avec Kmoyenne
 
+On s'intéresse à un autre jeu de données sous forme de deux spirales qu'on cherche à détecter automatiquement. 
 ```{r, eval=TRUE, fig.height=5.5, fig.width=5.5}
 require(kernlab)
 data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main="deux spirales")
 ```
 
-Comme on peut voir Kmoyenne, échoue complétement en séparant les spirales en leur milieu.
-On utilise alors specc pour les séparer et comme on peut voir sur l'image ci-dessous, arrive à séparer correctement les spirales.
+Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l'algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l'agorithme des k-moyennes échoue dans la détection des deux groupes.
+
 ```{r, eval=TRUE}
 require(kernlab)
 data(spirals)
@@ -80,3 +77,13 @@ plot(spirals, col = specc(spirals, 2), xlab=~x, ylab=~y)
 ```
 
 
+Revenons au premier exemple d'attribution d'étiquettes rouges et noirs aux impacts de tirs, nous avons donné en entrée de l'algorithme des k-moyennes, le nombre de groupes qui correspond au chiffre $2$ dans l'instruction  `kmeans(ech$x, 2, nstart = 100)`. Cette information est inconnu a priori dans une situation réelle. Il serait donc intéressant de mettre une place un mécanisme de choix du nombre de tireurs. Comme on peut le constater sur le même jeu de données, c'est uniquement l'abscisse d'un point qui permet de déterminer l'appartenance à une couleur ou une autre. La question de détection de dimensions discriminante est une question très importance quand il s'agît de classer des données génétiques où une dimension discriminante correspond à une position du génome qui permet de faire un diagnostic.  La procédure implémentée dans la librairie [\textsf{VarSelLCM}](http://varsellcm.r-forge.r-project.org/) de \textsf{R} permet de répondre aux deux questions précédentes comme on peut le voir sur le bloc de code suivant. Ce libraire est le résultat des travaux des trois dernières années de recherche de mon tuteur  en collaboration étroite avec son coauteur enseignant-chercheur à 
+l'[ENSAI](http://www.ensai.fr/) à Rennes. 
+```{r, eval=TRUE}
+require(VarSelLCM)
+res_with <- VarSelCluster(ech$x, gvals=1:6, nbcores = 8, crit.varsel = "BIC")
+print(res_with)
+min(mean(ech$z!=res_with@partitions@zMAP), 1-mean(ech$z!=res_with@partitions@zMAP))
+```
+On reprend l'exemple d'impacts de balles sur un mur avec un nouvel algorithme. L'argument `gvals=1:6` de la fonction `VarSelCluster` permet de tester les nombre de groupes (nombre de tireurs dans cet exemple) allant de 1 à 8. La commande `nbcores = 8` permet de faire appel aux 8 coeurs du processeur pour faire le calcul en un temps plus court.
+Il a detecté la présence de deux tireurs, il y'a une des deux dimensions qui est inutile pour détecter le nombre de tireurs et le taux d'erreur est de 6.5%.

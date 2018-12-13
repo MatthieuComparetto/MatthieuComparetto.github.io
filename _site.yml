@@ -14,7 +14,7 @@ navbar:
         - text: "deuxième jour"
           href: day2.html
         - text: "troisième jour"
-          href: 
+          href: day3.html
         - text: "quatrième jour"
           href:
         - text: "dernierjour"

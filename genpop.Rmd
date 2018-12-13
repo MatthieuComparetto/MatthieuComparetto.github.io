@@ -3,5 +3,19 @@ title: ''
 output: html_document
 ---
 
+Pour faciliter la comrpéhension du problème de classifaction et des deux questions du choix du nombre de groupes et la détection des dimensions discriminantes, nous nous sommes contentés d'exemples jouets de données (impacts de balles et spirales). En réalité les deux questions précédentes ont été soulevées des cadres variés comme le diagnostic à partir d'expression de gênes.  Pour illustrer ce domaine d'application, nous allons faire appel à des données observées en très grande dimension.  La table de données `golub` contient les valeurs d'expressions génétiques de 3051 gènes prélevés chez 38 patients atteints de leucémie. Vingt-sept patients ont reçu un diagnostic de leucémie lymphoblastique aiguë (ALL) et onze leucémie myéloïde aiguë (LMA). L'idée est réussir à classer les deux groupes de leucémies avec le taux d'erreur le plus bas et détecter les dimensions classifiantes qui serviront au diagnostic et à la compréhension de la maladie. 
 
-à venir 
+```{r, eval=TRUE}
+require(VarSelLCM)
+data(golub, package = "multtest") # lecture des données
+golub <- t(golub)
+nb.CPU <- 8# utilisation de la capacité maximale de calcul de l'ordinateur
+# détection des deux groupes 
+res.selec <- VarSelCluster(golub,
+                           gvals = 2,
+                           vbleSelec= TRUE,
+                           crit.varsel = "MICL",
+                           nbcores = nb.CPU)
+print(res.selec)
+print(golub.cl)
+print(res.selec@partitions@zOPT-1)
