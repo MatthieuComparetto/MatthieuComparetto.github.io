@@ -370,9 +370,29 @@ res.selec &lt;- VarSelCluster(golub,
                            vbleSelec= TRUE,
                            crit.varsel = &quot;MICL&quot;,
                            nbcores = nb.CPU)
-print(res.selec)
-print(golub.cl)
-print(res.selec@partitions@zOPT-1)</code></pre>
+print(res.selec)</code></pre>
+<pre><code>## Data set:
+##    Number of individuals: 38 
+##    Number of continuous variables: 3051 
+## 
+## Model:
+##    Number of components: 2 
+##    Model selection has been performed according to the MICL  criterion 
+##    Variable selection has been performed, 553  ( 18.13 % ) of the variables are relevant for clustering 
+##    
+## Information Criteria:
+##    loglike: -77235.87 
+##    AIC:     -84444.87 
+##    BIC:     -90347.55 
+##    ICL:     -103858.8 
+##    MICL:    -103858.8 
+##    Best values has been found  5 times</code></pre>
+<pre class="r"><code>print(golub.cl)</code></pre>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+## [36] 1 1 1</code></pre>
+<pre class="r"><code>print(res.selec@partitions@zOPT-1)</code></pre>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0
+## [36] 0 0 0</code></pre>
 </div>
 <div id="projet-de-recherche-mode-de-vie-humain-variation-genetique-et-epigenetique" class="section level2">
 <h2>Projet de recherche :Mode de vie humain, variation génétique et épigénétique</h2>

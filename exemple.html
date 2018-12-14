@@ -402,9 +402,8 @@ plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col = detect$cluster,
 <pre><code>## [1] 0.055</code></pre>
 <p>Comme on peut le constater, l’affectation des couleurs des étiquettes se fait à une permutation près. L’algorithme des k-moyennes se trompes dans l’étiquetage de <span class="math inline">\(5.5\%\)</span> des impacts.</p>
 <p>On s’intéresse à un autre jeu de données sous forme de deux spirales qu’on cherche à détecter automatiquement.</p>
-<pre class="r"><code>require(kernlab)</code></pre>
-<pre><code>## Loading required package: kernlab</code></pre>
-<pre class="r"><code>data(spirals)
+<pre class="r"><code>require(kernlab)
+data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main=&quot;deux spirales&quot;)</code></pre>
 <p><img src="exemple_files/figure-html/unnamed-chunk-3-1.png" width="528" /></p>
 <p>Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l’algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l’algorithme des k-moyennes échoue dans la détection des deux groupes.</p>
@@ -415,17 +414,8 @@ plot(spirals, col = kmeans(spirals, 2)$cluster, xlab=~x, ylab=~y )
 plot(spirals, col = specc(spirals, 2), xlab=~x, ylab=~y)</code></pre>
 <p><img src="exemple_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Revenons au premier exemple d’attribution d’étiquettes rouges et noirs aux impacts de tirs, nous avons donné en entrée de l’algorithme des k-moyennes, le nombre de groupes qui correspond au chiffre <span class="math inline">\(2\)</span> dans l’instruction <code>kmeans(ech$x, 2, nstart = 100)</code>. Cette information est inconnu a priori dans une situation réelle. Il serait donc intéressant de mettre une place un mécanisme de choix du nombre de tireurs. Comme on peut le constater sur le même jeu de données, c’est uniquement l’abscisse d’un point qui permet de déterminer l’appartenance à une couleur ou une autre. La question de détection de dimensions discriminante est une question très importance quand il s’agît de classer des données génétiques où une dimension discriminante correspond à une position du génome qui permet de faire un diagnostic. La procédure implémentée dans la librairie <a href="http://varsellcm.r-forge.r-project.org/"></a> de  permet de répondre aux deux questions précédentes comme on peut le voir sur le bloc de code suivant. Ce libraire est le résultat des travaux des trois dernières années de recherche de mon tuteur en collaboration étroite avec son coauteur enseignant-chercheur à l’<a href="http://www.ensai.fr/">ENSAI</a> à Rennes.</p>
-<pre class="r"><code>require(VarSelLCM)</code></pre>
-<pre><code>## Loading required package: VarSelLCM</code></pre>
-<pre><code>## 
-## Attaching package: &#39;VarSelLCM&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:kernlab&#39;:
-## 
-##     predict</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     predict</code></pre>
-<pre class="r"><code>res_with &lt;- VarSelCluster(ech$x, gvals=1:6, nbcores = 8, crit.varsel = &quot;BIC&quot;)
+<pre class="r"><code>require(VarSelLCM)
+res_with &lt;- VarSelCluster(ech$x, gvals=1:6, nbcores = 8, crit.varsel = &quot;BIC&quot;)
 print(res_with)</code></pre>
 <pre><code>## Data set:
 ##    Number of individuals: 200 
