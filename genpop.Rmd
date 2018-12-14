@@ -2,10 +2,10 @@
 title: ''
 output: html_document
 ---
-
+## Application de la classification au diagnostic de leucémie
 Pour faciliter la compréhension du problème de classification et des deux questions du choix du nombre de groupes et la détection des dimensions discriminantes, nous nous sommes contentés d'exemples jouets de données (impacts de balles et spirales). En réalité les deux questions précédentes ont été soulevées des cadres variés comme le diagnostic à partir d'expression de gênes.  Pour illustrer ce domaine d'application, nous allons faire appel à des données observées en très grande dimension.  La table de données `golub` contient les valeurs d'expressions génétiques de 3051 gènes prélevés chez 38 patients atteints de leucémie. Vingt-sept patients ont reçu un diagnostic de leucémie lymphoblastique aiguë (ALL) et onze leucémie myéloïde aiguë (LMA). L'idée est réussir à classer les deux groupes de leucémies avec le taux d'erreur le plus bas et détecter les dimensions classifiantes qui serviront au diagnostic et à la compréhension de la maladie. 
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 require(VarSelLCM)
 data(golub, package = "multtest") # lecture des données
 golub <- t(golub)
@@ -19,3 +19,15 @@ res.selec <- VarSelCluster(golub,
 print(res.selec)
 print(golub.cl)
 print(res.selec@partitions@zOPT-1)
+```
+
+
+
+## Projet de recherche :Mode de vie humain, variation génétique et épigénétique 
+
+En collaboration avec Etienne Patin de l'institut Pasteur, mon tuteur et un troisième co-autheur de l'ENSAI se sont intéressés au problème de détection de positions du génome qui permettent de distinguer des populations d'agriculteurs bantous (31 tribus échantillonnées) et les chasseurs-cueilleurs ( tribus échantillonnées)
+de l’Afrique centrale. Les deux types de populations échantillonnées sont de tailles 1003 et 232 respectivement.
+Un des objectifs de cette étude était de comprendre les différences génétiques entre les deux populations afin d'indentifier les facteurs de risque suite aux fortes réductions de populations des chasseurs-cueilleurs qui ont subi diverses épidémies. 
+
+Cette question posée dans un contexte épigénétique est à l'origine du développement de la procédure implémentée dans la librairie `VarSelLCM`. Sur `160470` positions dans le génome d'un individu, `58954` suffisent pour distinguer les deux populations avec un taux d'erreur égal à `2.9%`. Bien évidemment ce travail est préalable à une examination détaillée par des experts de ces positions détectées comme discriminantes. 
+
