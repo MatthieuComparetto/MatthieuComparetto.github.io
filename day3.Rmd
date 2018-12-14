@@ -9,13 +9,13 @@ troisième jour
 <p><font size="4">
 résumé de la troisième journée:
 
-Exemple de classification d'impact de balle
+- Exemple de classification d'impact de balle
 
-Découverte de la programmation avec le logiciel libre \textsf{R}
+- Découverte de la programmation avec le logiciel libre \textsf{R}
 
-Rédaction de rapport à l'aide du language Rmakerdown
+- Rédaction de rapport à l'aide du language Rmakerdown
 
-Introduction à la problèmatique de detection du nombre de groupes homogènes dans un nuage de points
+- Introduction à la problèmatique de detection du nombre de groupes homogènes dans un nuage de points
 
 détection des dimensions discriminates dans une image de points
 </font></p>

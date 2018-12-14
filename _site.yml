@@ -16,9 +16,9 @@ navbar:
         - text: "troisième jour"
           href: day3.html
         - text: "quatrième jour"
-          href:
-        - text: "dernierjour"
-          href: 
+          href: day4.html
+        - text: "dernier jour"
+          href: day5.html
     - text: "institution/équipe de recherche"
       href: institut.html
     - text: "méthodes de classification"

@@ -1,7 +1,11 @@
 ---
 title: ''
 output: html_document
+
 ---
+<p><font size="6">
+Deuxième jour 
+</font></p>
 
 <p><font size="4"> 
 Résumé deuxième journée:
@@ -10,5 +14,5 @@ Résumé deuxième journée:
 
 - choix des rubriques de la page web, écriture de la page web
 
--hébergement de la page web
+- hébergement de la page web
 </font></p>

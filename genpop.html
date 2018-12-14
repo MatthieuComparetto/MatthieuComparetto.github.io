@@ -299,8 +299,12 @@ $(document).ready(function () {
     <li>
       <a href="day3.html">troisième jour</a>
     </li>
-    <li class="dropdown-header">quatrième jour</li>
-    <li class="dropdown-header">dernierjour</li>
+    <li>
+      <a href="day4.html">quatrième jour</a>
+    </li>
+    <li>
+      <a href="day5.html">dernier jour</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -354,14 +358,8 @@ $(document).ready(function () {
 
 
 <p>Pour faciliter la comrpéhension du problème de classifaction et des deux questions du choix du nombre de groupes et la détection des dimensions discriminantes, nous nous sommes contentés d’exemples jouets de données (impacts de balles et spirales). En réalité les deux questions précédentes ont été soulevées des cadres variés comme le diagnostic à partir d’expression de gênes. Pour illustrer ce domaine d’application, nous allons faire appel à des données observées en très grande dimension. La table de données <code>golub</code> contient les valeurs d’expressions génétiques de 3051 gènes prélevés chez 38 patients atteints de leucémie. Vingt-sept patients ont reçu un diagnostic de leucémie lymphoblastique aiguë (ALL) et onze leucémie myéloïde aiguë (LMA). L’idée est réussir à classer les deux groupes de leucémies avec le taux d’erreur le plus bas et détecter les dimensions classifiantes qui serviront au diagnostic et à la compréhension de la maladie.</p>
-<pre class="r"><code>require(VarSelLCM)</code></pre>
-<pre><code>## Loading required package: VarSelLCM</code></pre>
-<pre><code>## 
-## Attaching package: &#39;VarSelLCM&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     predict</code></pre>
-<pre class="r"><code>data(golub, package = &quot;multtest&quot;) # lecture des données
+<pre class="r"><code>require(VarSelLCM)
+data(golub, package = &quot;multtest&quot;) # lecture des données
 golub &lt;- t(golub)
 nb.CPU &lt;- 8# utilisation de la capacité maximale de calcul de l&#39;ordinateur
 # détection des deux groupes 
@@ -386,7 +384,7 @@ print(res.selec)</code></pre>
 ##    BIC:     -90347.55 
 ##    ICL:     -103858.8 
 ##    MICL:    -103858.8 
-##    Best values has been found  3 times</code></pre>
+##    Best values has been found  6 times</code></pre>
 <pre class="r"><code>print(golub.cl)</code></pre>
 <pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
 ## [36] 1 1 1</code></pre>

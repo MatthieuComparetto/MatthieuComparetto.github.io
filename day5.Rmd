@@ -1,0 +1,17 @@
+---
+title: ''
+output: html_document
+---
+<p><font size="6">
+Dernier jour 
+</font></p>
+
+<p><font size="4"> 
+Résumé de la dernière journée:
+
+- 
+
+- 
+
+- 
+</font></p>

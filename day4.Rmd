@@ -1,0 +1,17 @@
+---
+title: ''
+output: html_document
+---
+<p><font size="6">
+Quatrième jour
+</font></p>
+
+<p><font size="4"> 
+Résumé quatrième journée:
+
+- Début d'écriture du rapport de stage
+
+- Utilisation d'un nouvel algorithme pour classer des types de leucémie
+
+- Mise à jour du site web
+</font></p>
