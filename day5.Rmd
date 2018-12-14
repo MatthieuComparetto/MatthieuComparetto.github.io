@@ -9,9 +9,7 @@ Dernier jour
 <p><font size="4"> 
 Résumé de la dernière journée:
 
-- 
+- Correction des fautes
 
-- 
-
-- 
+- fin de l'écriture du rapport de stage
 </font></p>

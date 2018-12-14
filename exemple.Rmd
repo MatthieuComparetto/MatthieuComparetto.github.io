@@ -7,10 +7,10 @@ Dans cette partie, nous simulons des impacts de balles provenant de deux tireurs
  
  - l'instruction `set.seed(123)` permet de rendre l'expérience de simulation reproductible
  - l'objet intitulé `rmixture` qui simule les impacts de balles où 
-    - `n` est l'agrument qui contrôle le nombre d'impacts à simuler
+    - `n` est l’argument qui contrôle le nombre d'impacts à simuler
     - `delta` contrôle la différence entre les impacts des deux tireurs
-    - `d.disc` est le nombe de dimensions discriminantes (une seule dans notre exemple)
-    - `d.nondisc` est le nombe de dimensions non-discriminantes (une seule dans notre exemple)
+    - `d.disc` est le nombre de dimensions discriminantes (une seule dans notre exemple)
+    - `d.nondisc` est le nombre de dimensions non-discriminantes (une seule dans notre exemple)
 
 Dans la suite, nous allons utiliser le terme *étiquette* pour désigner les couleurs rouge et noir qui permettent de distinguer les impacts d'un tireur de ceux de l'autre.
 On propose de cacher la vérité qui correspond aux étiquettes rouges et noirs des impacts et nous allons faire appel à une procédure de détection appelée **algorithme des k-moyennes**.
@@ -39,7 +39,7 @@ L'algorithme des k-moyennes peut être résumé par les 4 étapes suivantes :
 
 3. On calcule les coordonnées moyennes des points rouges et les coordonnées moyennes des points noirs qui vont jouer le rôle des deux points moyens rouge et noir.
 
-4. On répete l'etape 2 et 3 jusqu'à ce que les deux points moyens rouge et noir se stabilisent et ne bougent plus.
+4. On répète l’étape 2 et 3 jusqu'à ce que les deux points moyens rouge et noir se stabilisent et ne bougent plus.
 
 
 <!-- L’algorithme ci dessous détecte la provenances des impacts de balles; On considère un tireur qui aura ses balles en noirs et un autre avec des balles en rouges. L’algorithme à 5.5% de chance de se tromper. Comme on peut voir sur le graphique, il ne suffit que d'une seule dimension pour distinguer le milieu des impacts de balles(Y) -->
@@ -55,7 +55,7 @@ plot(ech$x[,1], ech$x[,2], pch="+", col = detect$cluster,
      xlab=~x, ylab=~y, main="étiquettes attribuées")
 min(mean(ech$z!=detect$cluster), 1-mean(ech$z!=detect$cluster))
 ```
-Comme on peut le constacter, l'affectation des couleurs des étiquettes se fait à une permutation près. L'algorithme des k-moyennes se trompes dans l'étiquetage de $5.5\%$
+Comme on peut le constater, l'affectation des couleurs des étiquettes se fait à une permutation près. L'algorithme des k-moyennes se trompes dans l'étiquetage de $5.5\%$
 des impacts.
 
 
@@ -66,7 +66,7 @@ data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main="deux spirales")
 ```
 
-Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l'algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l'agorithme des k-moyennes échoue dans la détection des deux groupes.
+Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l'algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l’algorithme des k-moyennes échoue dans la détection des deux groupes.
 
 ```{r, eval=TRUE}
 require(kernlab)
@@ -85,5 +85,5 @@ res_with <- VarSelCluster(ech$x, gvals=1:6, nbcores = 8, crit.varsel = "BIC")
 print(res_with)
 min(mean(ech$z!=res_with@partitions@zMAP), 1-mean(ech$z!=res_with@partitions@zMAP))
 ```
-On reprend l'exemple d'impacts de balles sur un mur avec un nouvel algorithme. L'argument `gvals=1:6` de la fonction `VarSelCluster` permet de tester les nombre de groupes (nombre de tireurs dans cet exemple) allant de 1 à 8. La commande `nbcores = 8` permet de faire appel aux 8 coeurs du processeur pour faire le calcul en un temps plus court.
-Il a detecté la présence de deux tireurs, il y'a une des deux dimensions qui est inutile pour détecter le nombre de tireurs et le taux d'erreur est de 6.5%.
+On reprend l'exemple d'impacts de balles sur un mur avec un nouvel algorithme. L'argument `gvals=1:6` de la fonction `VarSelCluster` permet de tester les nombre de groupes (nombre de tireurs dans cet exemple) allant de 1 à 8. La commande `nbcores = 8` permet de faire appel aux 8 cœurs du processeur pour faire le calcul en un temps plus court.
+Il a détecté la présence de deux tireurs, il y'a une des deux dimensions qui est inutile pour détecter le nombre de tireurs et le taux d'erreur est de 6.5%.

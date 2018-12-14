@@ -4,13 +4,13 @@ output: html_document
 ---
 <div align="center">
 <font size="4"> 
-Batiment inserm villejuif
+Bâtiment Inserm Villejuif
 </font> 
 
 ![](image1.jpg)
 <p><font size="4">
 <div align="left">
-A propos de l'inserm:
+A propos de Inserm:
 Depuis sa création en 1964, l’Inserm a été l’acteur d’avancées médicales majeures : premiers tests de diagnostic prénatal, décryptage des mécanismes du système HLAHLALes protéines HLA, situées à la surface des cellules, permettent au système immunitaire de distinguer les cellules de l’organisme des cellules étrangères., première fécondation in vitro, identification du virus du sida, radiothérapie contre le cancer, première greffe de peau, stimulation cérébrale profondestimulation cérébrale profondeConsiste à délivrer un courant électrique de faible intensité dans certaines structures spécifiques du cerveau, grâce à des électrodes directement implantées., thérapie génique… 
 
 Cette mission s’appuie sur le travail de 9 instituts thématiques, dont le rôle est de réaliser l’état des lieux de la recherche dans leur domaine et d’animer cette recherche. Par ailleurs, les recherches sur le sida et les hépatites B et C sont conduites et financées par l’ANRS, agence autonome de l’Inserm.
@@ -23,11 +23,11 @@ Aujourd’hui, l’Inserm est au 1er rang européen des institutions académique
 [source](https://www.inserm.fr/connaitre-inserm/missions)
 
 <p><font size="4">
-retrouver le site de l'[inserm](https://www.inserm.fr/)
+retrouver le site de l'[Inserm](https://www.inserm.fr/)
 </font></p>
 
 <p><font size="4"> 
-L'inserm à aussi une chaine youtube.
+L'Inserm à aussi une chaîne YouTube.
 </font></p>
 
 <div align="center">
@@ -37,5 +37,5 @@ L'inserm à aussi une chaine youtube.
 
 <div align="left">
  <p><font size="4"> 
- retrouver sa chaine youtube [là](https://www.youtube.com/channel/UCIqFi2jwZI4TIs1hNZz18Mw)
+ retrouver sa chaîne YouTube [là](https://www.youtube.com/channel/UCIqFi2jwZI4TIs1hNZz18Mw)
  </font></p>

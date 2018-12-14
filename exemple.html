@@ -362,10 +362,10 @@ $(document).ready(function () {
 <li>l’instruction <code>set.seed(123)</code> permet de rendre l’expérience de simulation reproductible</li>
 <li>l’objet intitulé <code>rmixture</code> qui simule les impacts de balles où
 <ul>
-<li><code>n</code> est l’agrument qui contrôle le nombre d’impacts à simuler</li>
+<li><code>n</code> est l’argument qui contrôle le nombre d’impacts à simuler</li>
 <li><code>delta</code> contrôle la différence entre les impacts des deux tireurs</li>
-<li><code>d.disc</code> est le nombe de dimensions discriminantes (une seule dans notre exemple)</li>
-<li><code>d.nondisc</code> est le nombe de dimensions non-discriminantes (une seule dans notre exemple)</li>
+<li><code>d.disc</code> est le nombre de dimensions discriminantes (une seule dans notre exemple)</li>
+<li><code>d.nondisc</code> est le nombre de dimensions non-discriminantes (une seule dans notre exemple)</li>
 </ul></li>
 </ul>
 <p>Dans la suite, nous allons utiliser le terme <em>étiquette</em> pour désigner les couleurs rouge et noir qui permettent de distinguer les impacts d’un tireur de ceux de l’autre. On propose de cacher la vérité qui correspond aux étiquettes rouges et noirs des impacts et nous allons faire appel à une procédure de détection appelée <strong>algorithme des k-moyennes</strong>.</p>
@@ -387,7 +387,7 @@ plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col=ech$z, xlab=~x, ylab=~y, main=
 <li><p>On choisit deux points moyens au hasard, un rouge et un noir.</p></li>
 <li><p>On affecte une étiquette rouges aux points les plus proches du point rouge et une étiquette noir aux points les plus proches du point noir;</p></li>
 <li><p>On calcule les coordonnées moyennes des points rouges et les coordonnées moyennes des points noirs qui vont jouer le rôle des deux points moyens rouge et noir.</p></li>
-<li><p>On répete l’etape 2 et 3 jusqu’à ce que les deux points moyens rouge et noir se stabilisent et ne bougent plus.</p></li>
+<li><p>On répète l’étape 2 et 3 jusqu’à ce que les deux points moyens rouge et noir se stabilisent et ne bougent plus.</p></li>
 </ol>
 <!-- L’algorithme ci dessous détecte la provenances des impacts de balles; On considère un tireur qui aura ses balles en noirs et un autre avec des balles en rouges. L’algorithme à 5.5% de chance de se tromper. Comme on peut voir sur le graphique, il ne suffit que d'une seule dimension pour distinguer le milieu des impacts de balles(Y) -->
 <!-- grâce à l'algorithme on peut aussi savoir quel est le côté discriminant et le aussi nombre de tireur. -->
@@ -400,14 +400,14 @@ plot(ech$x[,1], ech$x[,2], pch=&quot;+&quot;, col = detect$cluster,
 <p><img src="exemple_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>min(mean(ech$z!=detect$cluster), 1-mean(ech$z!=detect$cluster))</code></pre>
 <pre><code>## [1] 0.055</code></pre>
-<p>Comme on peut le constacter, l’affectation des couleurs des étiquettes se fait à une permutation près. L’algorithme des k-moyennes se trompes dans l’étiquetage de <span class="math inline">\(5.5\%\)</span> des impacts.</p>
+<p>Comme on peut le constater, l’affectation des couleurs des étiquettes se fait à une permutation près. L’algorithme des k-moyennes se trompes dans l’étiquetage de <span class="math inline">\(5.5\%\)</span> des impacts.</p>
 <p>On s’intéresse à un autre jeu de données sous forme de deux spirales qu’on cherche à détecter automatiquement.</p>
 <pre class="r"><code>require(kernlab)</code></pre>
 <pre><code>## Loading required package: kernlab</code></pre>
 <pre class="r"><code>data(spirals)
 plot(spirals, xlab=~x, ylab=~y, main=&quot;deux spirales&quot;)</code></pre>
 <p><img src="exemple_files/figure-html/unnamed-chunk-3-1.png" width="528" /></p>
-<p>Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l’algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l’agorithme des k-moyennes échoue dans la détection des deux groupes.</p>
+<p>Ce jeu de données est intéressant par la forme des deux groupes à détecter. Cette forme spirale des deux groupes met en échec l’algorithme des k-moyennes comme on peut le remarquer sur la figure à gauche ci-dessous. En raison de la forme non-convexe des spirales, l’algorithme des k-moyennes échoue dans la détection des deux groupes.</p>
 <pre class="r"><code>require(kernlab)
 data(spirals)
 par(mfrow=c(1,2))
@@ -443,7 +443,7 @@ print(res_with)</code></pre>
 ##    ICL:     -781.7757</code></pre>
 <pre class="r"><code>min(mean(ech$z!=res_with@partitions@zMAP), 1-mean(ech$z!=res_with@partitions@zMAP))</code></pre>
 <pre><code>## [1] 0.065</code></pre>
-<p>On reprend l’exemple d’impacts de balles sur un mur avec un nouvel algorithme. L’argument <code>gvals=1:6</code> de la fonction <code>VarSelCluster</code> permet de tester les nombre de groupes (nombre de tireurs dans cet exemple) allant de 1 à 8. La commande <code>nbcores = 8</code> permet de faire appel aux 8 coeurs du processeur pour faire le calcul en un temps plus court. Il a detecté la présence de deux tireurs, il y’a une des deux dimensions qui est inutile pour détecter le nombre de tireurs et le taux d’erreur est de 6.5%.</p>
+<p>On reprend l’exemple d’impacts de balles sur un mur avec un nouvel algorithme. L’argument <code>gvals=1:6</code> de la fonction <code>VarSelCluster</code> permet de tester les nombre de groupes (nombre de tireurs dans cet exemple) allant de 1 à 8. La commande <code>nbcores = 8</code> permet de faire appel aux 8 cœurs du processeur pour faire le calcul en un temps plus court. Il a détecté la présence de deux tireurs, il y’a une des deux dimensions qui est inutile pour détecter le nombre de tireurs et le taux d’erreur est de 6.5%.</p>
 
 
 

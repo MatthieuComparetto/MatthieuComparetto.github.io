@@ -10,7 +10,7 @@ Deuxième jour
 <p><font size="4"> 
 Résumé deuxième journée:
 
-- Mise en place du squellete de la page web du compte rendue du stage
+- Mise en place du squelette de la page web du compte rendue du stage
 
 - choix des rubriques de la page web, écriture de la page web
 

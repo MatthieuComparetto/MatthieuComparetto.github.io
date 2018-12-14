@@ -4,7 +4,7 @@ output: html_document
 ---
 
 <p><font size="4"> 
-Bonjours. Aujourd'hui je vais vous parler de mon stage passé a l'I.N.S.E.R.M pendant la semaine du 10 décembre au 14 décembre 2018. Ce site à été réalisé par moi-même avec l'aide du tuteur de mon stage.Le site à été fait pâr le logiciel r makerdown et hébéergé grâce au site github. Je suis allé du lundi au vendredi avec comme horraire: 9:00-12:00 et 13:00-17:00.
+Bonjours. Aujourd'hui je vais vous parler de mon stage passé a l'I.N.S.E.R.M pendant la semaine du 10 décembre au 14 décembre 2018. Ce site à été réalisé par moi-même avec l'aide du tuteur de mon stage.Le site à été fait par le logiciel Rmakerdown et hébergé grâce au site github. Je suis allé du lundi au vendredi avec comme horaire: 9:00-12:00 et 13:00-17:00.
 </font></p>
 
 

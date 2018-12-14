@@ -11,12 +11,12 @@ Premier jours
 <p><font size="4">
 Résumé de la première journée:
 
-- Présentation avec le tuteur et son équipe d'enseingnat-chercheur qui travaillent sur pharmacovigilance et biostatistique.
+- Présentation avec le tuteur et son équipe d’enseignant-chercheur qui travaillent sur pharmacovigilance et biostatistique.
 
-- Discussion sur le métier de chercheur et d'ensaignat chercheur
+- Discussion sur le métier de chercheur et enseignante chercheur
 
-- Présentation de l'outil Rstudio utilisé pour la rédaction des des devellopement d'enseingnat et devellopement logiciel
+- Présentation de l'outil Rstudio utilisé pour la rédaction des des développement d’enseignant et développement logiciel
 
-- Decouvrir la programmation HTML à l'aide de l'outil Rmakerdown
+- Découvrir la programmation HTML à l'aide de l'outil Rmakerdown
 
 </font></p>
